@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's Your Social Media Strategy? | GOAT Mastermind</title>
+    <meta name="description" content="Answer 5 questions to discover the exact social media strategy you should use to grow your business. Based on a proven 2x2 content framework.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <!-- LANDING -->
+      <section class="landing" id="landing">
+        <!-- Logo block positioned at the top-left on desktop -->
+        <div class="landing-header">
+          <img class="brand-logo-large" src="/gmm_logo.png" alt="GOAT Mastermind Logo">
+        </div>
+
+        <div class="landing-eyebrow"><span class="dot"></span> For business owners</div>
+        <h1>Find your <span class="highlight-gold">exact</span> social media strategy</h1>
+        <p class="landing-sub">5 questions. No fluff. Walk away knowing precisely which content strategy will grow your business fastest.</p>
+        
+        <button class="start-btn" onclick="startQuiz()">
+          Take the quiz — it's free
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 10h-4v-2h4V7l5 5-5 5v-3z"/>
+          </svg>
+        </button>
+
+        <div class="landing-meta">
+          <span>⏱ 2 minutes</span>
+          <span>📊 4 possible outcomes</span>
+          <span>🎯 Tailored to your business</span>
+        </div>
+        
+        <div class="matrix-preview">
+          <div class="matrix-cell mc-purple">
+            <div class="mc-label">Personal · Edu</div>
+            <div class="mc-desc">Coaching, consulting, agencies</div>
+          </div>
+          <div class="matrix-cell mc-coral">
+            <div class="mc-label">Personal · Ent</div>
+            <div class="mc-desc">Consumer products, lifestyle</div>
+          </div>
+          <div class="matrix-cell mc-teal">
+            <div class="mc-label">Brand · Edu</div>
+            <div class="mc-desc">SaaS, B2B, niche tools</div>
+          </div>
+          <div class="matrix-cell mc-amber">
+            <div class="mc-label">Brand · Ent</div>
+            <div class="mc-desc">CPG, retail, consumer apps</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ -->
+      <section class="quiz-screen hidden" id="quiz">
+        <!-- Logo block positioned at the top-left on desktop -->
+        <div class="landing-header">
+          <img class="brand-logo-medium" src="/gmm_logo.png" alt="GOAT Mastermind Logo">
+        </div>
+
+        <div class="quiz-header">
+          <div class="quiz-logo-container">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase;">GOAT Quiz</span>
+          </div>
+          <div class="q-counter" id="q-counter">1 / 5</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+        <div class="question-block" id="question-block"></div>
+        <div class="nav-btns">
+          <button class="btn-back hidden" id="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="btn-next" disabled onclick="goNext()">Continue →</button>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section class="result-screen hidden" id="result">
+        <!-- Logo block positioned at the top-left on desktop -->
+        <div class="landing-header">
+          <img class="brand-logo-medium" src="/gmm_logo.png" alt="GOAT Mastermind Logo">
+        </div>
+
+        <div class="result-header">
+          <div class="quiz-logo-container">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase;">GOAT Strategy</span>
+          </div>
+          <button class="retake-btn" onclick="retake()">← Retake</button>
+        </div>
+        <div class="result-content" id="result-content"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

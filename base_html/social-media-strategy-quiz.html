@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Social Media Strategy? | Business Owner Quiz</title>
+<meta name="description" content="Answer 5 questions to discover the exact social media strategy you should use to grow your business. Based on a proven 2x2 content framework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --surface2: #F2EFE8;
+    --ink: #1A1915;
+    --ink2: #6B6860;
+    --ink3: #A8A59E;
+    --accent: #2D5A3D;
+    --accent-light: #E8F0EB;
+    --accent2: #C4622D;
+    --accent2-light: #FBF0EA;
+    --border: rgba(26,25,21,0.1);
+    --border-strong: rgba(26,25,21,0.2);
+    --purple: #4A3F7A;
+    --purple-light: #EDEAF7;
+    --teal: #1B6B6B;
+    --teal-light: #E4F2F2;
+    --coral: #C4622D;
+    --coral-light: #FBF0EA;
+    --amber: #9A6B1A;
+    --amber-light: #FDF4E3;
+    --r: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO / LANDING ─── */
+  .landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .landing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(45,90,61,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(196,98,45,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .landing-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .landing h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    max-width: 700px;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .landing h1 em { font-style: italic; color: var(--accent); }
+  .landing-sub {
+    font-size: 17px;
+    color: var(--ink2);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .start-btn {
+    background: var(--ink);
+    color: #F7F5F0;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .start-btn:hover { transform: translateY(-2px); background: #2C2A26; }
+  .landing-meta {
+    margin-top: 1.5rem;
+    font-size: 13px;
+    color: var(--ink3);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .landing-meta span { display: flex; align-items: center; gap: 5px; }
+  .matrix-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-width: 340px;
+    margin: 3rem auto 0;
+  }
+  .matrix-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: left;
+    opacity: 0.7;
+  }
+  .matrix-cell .mc-label { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 3px; }
+  .matrix-cell .mc-desc { font-size: 12px; color: var(--ink2); line-height: 1.4; }
+  .mc-purple .mc-label { color: var(--purple); }
+  .mc-teal .mc-label { color: var(--teal); }
+  .mc-coral .mc-label { color: var(--coral); }
+  .mc-amber .mc-label { color: var(--amber); }
+
+  /* ─── QUIZ ─── */
+  .quiz-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .quiz-header {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .quiz-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 18px;
+    color: var(--ink2);
+  }
+  .q-counter { font-size: 13px; color: var(--ink3); font-weight: 500; }
+  .progress-track {
+    width: 100%;
+    max-width: 620px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 3px;
+    background: var(--ink);
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .question-block {
+    width: 100%;
+    max-width: 620px;
+    animation: fadeUp 0.35s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .q-step { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.75rem; }
+  .q-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .q-sub { font-size: 14px; color: var(--ink2); margin-bottom: 2rem; font-weight: 300; line-height: 1.6; }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 2rem; }
+  .opt {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 20px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    position: relative;
+    overflow: hidden;
+  }
+  .opt:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .opt.selected { border-color: var(--ink); background: #F7F5F0; }
+  .opt.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 12px; right: 14px;
+    width: 20px; height: 20px;
+    background: var(--ink);
+    color: #F7F5F0;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .opt-icon { font-size: 22px; margin-bottom: 10px; }
+  .opt-label { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+  .opt-desc { font-size: 12px; color: var(--ink2); line-height: 1.4; font-weight: 300; }
+  .nav-btns { display: flex; gap: 10px; justify-content: flex-end; width: 100%; max-width: 620px; }
+  .btn-back {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    padding: 11px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink2);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .btn-back:hover { border-color: var(--border-strong); }
+  .btn-next {
+    background: var(--ink);
+    color: #F7F5F0;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .btn-next:disabled { opacity: 0.3; cursor: default; transform: none !important; }
+  .btn-next:not(:disabled):hover { transform: translateY(-1px); }
+
+  /* ─── RESULT ─── */
+  .result-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .result-header {
+    width: 100%; max-width: 680px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .result-logo { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--ink2); }
+  .result-content { width: 100%; max-width: 680px; animation: fadeUp 0.4s ease both; }
+  .result-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .result-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .result-sub { font-size: 15px; color: var(--ink2); line-height: 1.7; font-weight: 300; margin-bottom: 2rem; max-width: 600px; }
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+  .r-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 16px 18px;
+  }
+  .r-card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; }
+  .r-card-val { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .examples-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 20px 22px;
+    margin-bottom: 1.5rem;
+  }
+  .examples-title { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); margin-bottom: 14px; }
+  .examples-list { list-style: none; }
+  .examples-list li {
+    font-size: 14px; color: var(--ink2);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+  }
+  .examples-list li:last-child { border-bottom: none; }
+  .check { color: var(--accent); font-size: 13px; margin-top: 2px; flex-shrink: 0; }
+  .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 2rem; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 12px; border-radius: 999px;
+    border: 1px solid;
+  }
+  .cta-block {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 2rem;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-text { flex: 1; min-width: 200px; }
+  .cta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(247,245,240,0.5); margin-bottom: 6px; }
+  .cta-body { font-size: 14px; color: rgba(247,245,240,0.85); line-height: 1.6; font-weight: 300; }
+  .retake-btn {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    padding: 11px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink2);
+    cursor: pointer;
+    transition: border-color 0.15s;
+    margin-top: 0.5rem;
+  }
+  .retake-btn:hover { border-color: var(--border-strong); }
+
+  /* ─── COLOR THEMES ─── */
+  .theme-purple .result-eyebrow { background: var(--purple-light); color: var(--purple); border: 1px solid rgba(74,63,122,0.2); }
+  .theme-purple .result-title { color: var(--ink); }
+  .theme-teal .result-eyebrow { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(27,107,107,0.2); }
+  .theme-coral .result-eyebrow { background: var(--coral-light); color: var(--coral); border: 1px solid rgba(196,98,45,0.2); }
+  .theme-amber .result-eyebrow { background: var(--amber-light); color: var(--amber); border: 1px solid rgba(154,107,26,0.2); }
+
+  .theme-purple .tag { background: var(--purple-light); color: var(--purple); border-color: rgba(74,63,122,0.2); }
+  .theme-teal .tag { background: var(--teal-light); color: var(--teal); border-color: rgba(27,107,107,0.2); }
+  .theme-coral .tag { background: var(--coral-light); color: var(--coral); border-color: rgba(196,98,45,0.2); }
+  .theme-amber .tag { background: var(--amber-light); color: var(--amber); border-color: rgba(154,107,26,0.2); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 540px) {
+    .options { grid-template-columns: 1fr; }
+    .result-grid { grid-template-columns: 1fr; }
+    .matrix-preview { grid-template-columns: 1fr 1fr; max-width: 280px; }
+    .landing h1 { font-size: 2rem; }
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<section class="landing" id="landing">
+  <div class="landing-eyebrow"><span class="dot"></span> For business owners</div>
+  <h1>Find your <em>exact</em> social media strategy</h1>
+  <p class="landing-sub">5 questions. No fluff. Walk away knowing precisely which content strategy will grow your business fastest.</p>
+  <button class="start-btn" onclick="startQuiz()">Take the quiz — it's free</button>
+  <div class="landing-meta">
+    <span>⏱ 2 minutes</span>
+    <span>📊 4 possible outcomes</span>
+    <span>🎯 Tailored to your business</span>
+  </div>
+  <div class="matrix-preview">
+    <div class="matrix-cell mc-purple">
+      <div class="mc-label">Personal · Edu</div>
+      <div class="mc-desc">Coaching, consulting, agencies</div>
+    </div>
+    <div class="matrix-cell mc-coral">
+      <div class="mc-label">Personal · Ent</div>
+      <div class="mc-desc">Consumer products, lifestyle</div>
+    </div>
+    <div class="matrix-cell mc-teal">
+      <div class="mc-label">Brand · Edu</div>
+      <div class="mc-desc">SaaS, B2B, niche tools</div>
+    </div>
+    <div class="matrix-cell mc-amber">
+      <div class="mc-label">Brand · Ent</div>
+      <div class="mc-desc">CPG, retail, consumer apps</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-screen hidden" id="quiz">
+  <div class="quiz-header">
+    <div class="quiz-logo">Strategy Quiz</div>
+    <div class="q-counter" id="q-counter">1 / 5</div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+  <div class="question-block" id="question-block"></div>
+  <div class="nav-btns">
+    <button class="btn-back hidden" id="btn-back" onclick="goBack()">← Back</button>
+    <button class="btn-next" id="btn-next" disabled onclick="goNext()">Continue →</button>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="result-screen hidden" id="result">
+  <div class="result-header">
+    <div class="result-logo">Strategy Quiz</div>
+    <button class="retake-btn" onclick="retake()">← Retake</button>
+  </div>
+  <div class="result-content" id="result-content"></div>
+</section>
+
+<script>
+const Qs = [
+  {
+    id:"q1", step:"Question 1 of 5",
+    title:"What's your primary goal with social media?",
+    sub:"This shapes your entire strategy — pick the one that fits best.",
+    opts:[
+      { v:"ads", icon:"📢", label:"Earn from brand deals & platform payouts", desc:"Sponsorships, CPM ads, YouTube AdSense, platform monetisation" },
+      { v:"convert", icon:"🛒", label:"Sell my own product or service", desc:"Use free content to convert viewers into paying customers" }
+    ]
+  },
+  {
+    id:"q2", step:"Question 2 of 5",
+    title:"Does your buyer need to be educated on how your solution works?",
+    sub:"Would a total stranger instantly understand the value of your product, or do you need to walk them through it?",
+    opts:[
+      { v:"no", icon:"⚡", label:"No — the value is self-explanatory", desc:"Like candy, clothing, or a camera app. People get it immediately." },
+      { v:"yes", icon:"🎓", label:"Yes — I need to explain my approach", desc:"Like coaching, consulting, software, or a new framework / method." }
+    ]
+  },
+  {
+    id:"q3", step:"Question 3 of 5",
+    title:"What type of business are you running?",
+    sub:"Choose the closest match — this helps determine brand positioning.",
+    opts:[
+      { v:"service", icon:"🙋", label:"Service, coaching, or consulting", desc:"Clients buy you — your expertise and personal approach" },
+      { v:"cpg", icon:"📦", label:"Physical product / CPG / retail", desc:"Products sold in stores or direct to consumer" },
+      { v:"software", icon:"💻", label:"Software or app", desc:"A digital product users subscribe to or download" },
+      { v:"agency", icon:"👥", label:"Agency or done-for-you service", desc:"Your team delivers results on behalf of clients" }
+    ]
+  },
+  {
+    id:"q4", step:"Question 4 of 5",
+    title:"What does your content need to do to move someone toward buying?",
+    sub:"Be honest about what actually converts a viewer into a buyer for your specific offer.",
+    opts:[
+      { v:"feel", icon:"❤️", label:"Make them feel something", desc:"Desire, FOMO, inspiration, or curiosity — emotion drives the sale" },
+      { v:"learn", icon:"💡", label:"Teach them something", desc:"Understanding your method or results is what builds the trust to buy" }
+    ]
+  },
+  {
+    id:"q5", step:"Question 5 of 5",
+    title:"Does the buyer need to trust YOU personally to make the purchase?",
+    sub:"Or could a brand name / logo build that trust without your face attached?",
+    opts:[
+      { v:"yes", icon:"🪪", label:"Yes — they're buying me as much as the product", desc:"My face, story, and personality are central to the sale" },
+      { v:"no", icon:"🏪", label:"Not really — brand recognition matters more", desc:"Think shelf recall or logo trust over a personal face" }
+    ]
+  }
+];
+
+const Results = {
+  "personal-education": {
+    theme:"theme-purple",
+    eyebrow:"Personal brand · Education content",
+    title:"You should build a personal brand and make education content",
+    sub:"Your buyers need to understand your method before they trust you enough to buy. Your content is your sales pitch — it works by demonstrating your thinking, process, and results, not just grabbing attention.",
+    tags:["Coaching","Consulting","Agency","Online courses","SaaS with complex onboarding"],
+    cards:[
+      { label:"Account positioning", val:"Individual personal brand" },
+      { label:"Content type", val:"Education — tactics, how-tos, frameworks" },
+      { label:"Business game", val:"Conversion (sell your own offer)" },
+      { label:"Trust builder", val:"Your expertise and track record" }
+    ],
+    examples:[
+      "Break down your exact process or method step by step",
+      "Expose the most common mistakes your ideal clients make",
+      "Share real client case studies and results",
+      "Answer the top objections buyers have before they hire you",
+      "Compare your approach vs. the industry standard"
+    ],
+    cta:"Find 10–20 personal brand education accounts in your niche. Study what topics their top videos cover — that's your content roadmap."
+  },
+  "personal-entertainment": {
+    theme:"theme-coral",
+    eyebrow:"Personal brand · Entertainment content",
+    title:"You should build a personal brand and make entertainment content",
+    sub:"Your product is self-explanatory — people just need to discover you and feel something. Your content doesn't teach; it creates emotion, desire, and a sense of personality. Think vibes, story, and relatability over tutorials.",
+    tags:["Clothing brands","Consumer goods","Travel","Lifestyle","Fitness"],
+    cards:[
+      { label:"Account positioning", val:"Individual personal brand" },
+      { label:"Content type", val:"Entertainment — emotion, story, humor, vibes" },
+      { label:"Business game", val:"Advertising game or Conversion game" },
+      { label:"Trust builder", val:"Your personality and aesthetic" }
+    ],
+    examples:[
+      "Day-in-the-life or behind-the-scenes content",
+      "Relatable humor or skits rooted in your niche",
+      "Cinematic lifestyle or product showcase videos",
+      "Trend-based or challenge content",
+      "Authentic storytelling about your journey"
+    ],
+    cta:"Study entertainment creators in your niche. What hooks, formats, and emotions are their top-performing videos using?"
+  },
+  "brand-education": {
+    theme:"theme-teal",
+    eyebrow:"Traditional brand · Education content",
+    title:"You should build a brand account and make education content",
+    sub:"You're building around a brand name (not a single person) and your buyers need to understand your solution before committing. Free educational content is your trust builder — it lets buyers self-educate into your offer.",
+    tags:["SaaS companies","B2B services","Agencies","Niche tools","Platforms"],
+    cards:[
+      { label:"Account positioning", val:"Traditional brand (use real humans in content)" },
+      { label:"Content type", val:"Education — how-tos, insights, problem-solving" },
+      { label:"Business game", val:"Conversion (sell your own offer)" },
+      { label:"Trust builder", val:"Brand authority and demonstrated expertise" }
+    ],
+    examples:[
+      "Teach the core problem your product solves in depth",
+      "Platform walkthroughs, tips, and hidden features",
+      "Industry data, hot takes, and trend breakdowns",
+      "Compare your category's solutions honestly",
+      "Customer story content that shows outcomes"
+    ],
+    cta:"Find 10–20 brand education accounts in your space and analyse which topics consistently get the most views."
+  },
+  "brand-entertainment": {
+    theme:"theme-amber",
+    eyebrow:"Traditional brand · Entertainment content",
+    title:"You should build a brand account and make entertainment content",
+    sub:"You're building a recognisable brand name (especially important for retail / shelf placement) and your product speaks for itself. Content creates emotional desire and FOMO — people just need to want it and remember your name.",
+    tags:["CPG","Retail products","Consumer apps","Luxury goods","Food & beverage"],
+    cards:[
+      { label:"Account positioning", val:"Traditional brand (founders or characters on camera)" },
+      { label:"Content type", val:"Entertainment — emotion, aesthetic, FOMO" },
+      { label:"Business game", val:"Conversion or Advertising game" },
+      { label:"Trust builder", val:"Brand recognition and emotional association" }
+    ],
+    examples:[
+      "Show your product in aspirational, desirable contexts",
+      "Behind-the-scenes at your company or production",
+      "Founder-led skits that give the brand a personality",
+      "Trend and community-driven content",
+      "Emotional storytelling around your brand's origin"
+    ],
+    cta:"Study entertainment brand accounts in your category. What visual formats and emotional triggers do their best videos use?"
+  }
+};
+
+let current=0, answers={}, sel=null;
+
+function startQuiz(){
+  document.getElementById("landing").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+  renderQ();
+}
+
+function renderQ(){
+  const q=Qs[current]; sel=answers[q.id]||null;
+  const cols=q.opts.length===2?"1fr 1fr":"1fr 1fr";
+  document.getElementById("question-block").innerHTML=`
+    <div class="q-step">${q.step}</div>
+    <div class="q-title">${q.title}</div>
+    <div class="q-sub">${q.sub}</div>
+    <div class="options" style="grid-template-columns:${cols}">
+      ${q.opts.map(o=>`
+        <button class="opt${sel===o.v?' selected':''}" onclick="pick('${o.v}',this)">
+          <div class="opt-icon">${o.icon}</div>
+          <div class="opt-label">${o.label}</div>
+          <div class="opt-desc">${o.desc}</div>
+        </button>`).join("")}
+    </div>`;
+  document.getElementById("q-counter").textContent=`${current+1} / ${Qs.length}`;
+  document.getElementById("progress-fill").style.width=`${((current+1)/Qs.length)*100}%`;
+  document.getElementById("btn-next").disabled=!sel;
+  document.getElementById("btn-next").textContent=current===Qs.length-1?"See my strategy →":"Continue →";
+  document.getElementById("btn-back").classList.toggle("hidden", current===0);
+  document.getElementById("question-block").style.animation="none";
+  requestAnimationFrame(()=>{ document.getElementById("question-block").style.animation=""; });
+}
+
+function pick(v,el){
+  sel=v;
+  document.querySelectorAll(".opt").forEach(b=>b.classList.remove("selected"));
+  el.classList.add("selected");
+  document.getElementById("btn-next").disabled=false;
+}
+
+function goNext(){
+  if(!sel) return;
+  answers[Qs[current].id]=sel;
+  if(current<Qs.length-1){ current++; sel=null; renderQ(); }
+  else showResult();
+}
+
+function goBack(){
+  if(current>0){ current--; sel=answers[Qs[current].id]||null; renderQ(); }
+}
+
+function calcResult(){
+  const edu=(answers.q2==="yes"||answers.q4==="learn");
+  const personal=(answers.q3==="service"||answers.q3==="agency"||answers.q5==="yes");
+  return (personal?"personal":"brand")+"-"+(edu?"education":"entertainment");
+}
+
+function showResult(){
+  const key=calcResult(); const r=Results[key];
+  document.getElementById("quiz").classList.add("hidden");
+  const rs=document.getElementById("result");
+  rs.classList.remove("hidden");
+  document.getElementById("result-content").className=`result-content ${r.theme}`;
+  document.getElementById("result-content").innerHTML=`
+    <div class="result-eyebrow">${r.eyebrow}</div>
+    <h2 class="result-title">${r.title}</h2>
+    <p class="result-sub">${r.sub}</p>
+    <div class="tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+    <div class="result-grid">
+      ${r.cards.map(c=>`<div class="r-card"><div class="r-card-label">${c.label}</div><div class="r-card-val">${c.val}</div></div>`).join("")}
+    </div>
+    <div class="examples-block">
+      <div class="examples-title">Content ideas to start with</div>
+      <ul class="examples-list">
+        ${r.examples.map(e=>`<li><span class="check">✓</span>${e}</li>`).join("")}
+      </ul>
+    </div>
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="cta-label">Your next step</div>
+        <div class="cta-body">${r.cta}</div>
+      </div>
+    </div>
+    <button class="retake-btn" onclick="retake()">← Retake the quiz</button>
+  `;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function retake(){
+  current=0; answers={}; sel=null;
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+  renderQ();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>
