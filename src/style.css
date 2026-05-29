@@ -755,42 +755,111 @@ main {
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .matrix-preview {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 580px) {
+@media (max-width: 1200px) {
+  /* Transition logo to top-center flow to prevent overlay overlap with centered hero text on laptops/tablets */
   .landing-header {
     position: relative;
     top: 0;
     left: 0;
+    margin-top: 2rem;
     margin-bottom: 2.5rem;
     justify-content: center;
     width: 100%;
   }
+  
   .brand-logo-large {
-    max-height: 110px;
+    max-height: 150px;
   }
+  
   .brand-logo-medium {
-    max-height: 75px;
+    max-height: 100px;
   }
+  
   .landing {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+  
+  .quiz-screen, .result-screen {
     padding: 4rem 1.5rem;
+    min-height: auto;
   }
+  
   .matrix-preview {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 3rem;
+    padding-top: 2.5rem;
   }
+}
+
+@media (max-width: 768px) {
+  .brand-logo-large {
+    max-height: 120px;
+  }
+  
+  .brand-logo-medium {
+    max-height: 80px;
+  }
+  
   .options {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
+  
   .result-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
+  
+  .opt {
+    padding: 18px 16px;
+  }
+  
+  .matrix-preview {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
   .landing h1 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  
+  .q-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-large {
+    max-height: 100px;
+  }
+  
+  .brand-logo-medium {
+    max-height: 70px;
+  }
+  
+  .landing {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .quiz-screen, .result-screen {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .start-btn {
+    padding: 14px 36px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-btns {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  
+  .btn-next, .btn-back {
+    width: 100%;
+    text-align: center;
   }
 }
 
