@@ -1,0 +1,7 @@
+{
+  "name": "gmm-social-media-strategy-quiz",
+  "compatibility_date": "2026-09-01",
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" },
+  "workers_dev": false,
+  "routes": [{ "pattern": "gmm-social-media-strategy-quiz.thegoatscale.com", "custom_domain": true }]
+}
